@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_152015) do
   end
 
   create_table "bikes", force: :cascade do |t|
-    t.string "status"
+    t.integer "status"
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_152015) do
   end
 
   create_table "stations", force: :cascade do |t|
-    t.string "status"
+    t.integer "status"
     t.string "name"
     t.integer "spots_number"
     t.bigint "address_id", null: false

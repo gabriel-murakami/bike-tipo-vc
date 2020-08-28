@@ -1,0 +1,9 @@
+<div>
+  <ul>
+    <% @stations.each do |station| %>
+      <li>
+        <%= station.name %> | <%= station.spots_number %>
+      </li>
+    <% end %>
+  </ul>
+</div>
