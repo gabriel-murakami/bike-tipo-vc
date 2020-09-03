@@ -2,7 +2,7 @@
 
 class Bike < ApplicationRecord
   belongs_to :station
-  has_many :trips, dependent: :nullify
+  has_many :trips
 
   enum status: {
     available: 0,

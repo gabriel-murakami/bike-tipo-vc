@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_152015) do
+ActiveRecord::Schema.define(version: 2020_09_03_165521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 2020_08_28_152015) do
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["station_id"], name: "index_bikes_on_station_id"
+    t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
   create_table "stations", force: :cascade do |t|
@@ -50,14 +52,30 @@ ActiveRecord::Schema.define(version: 2020_08_28_152015) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "start_station_id"
     t.bigint "finish_station_id"
+    t.bigint "user_id"
     t.index ["bike_id"], name: "index_trips_on_bike_id"
     t.index ["finish_station_id"], name: "index_trips_on_finish_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bikes", "stations"
+  add_foreign_key "bikes", "users"
   add_foreign_key "stations", "addresses"
   add_foreign_key "trips", "bikes"
   add_foreign_key "trips", "stations", column: "finish_station_id"
   add_foreign_key "trips", "stations", column: "start_station_id"
+  add_foreign_key "trips", "users"
 end

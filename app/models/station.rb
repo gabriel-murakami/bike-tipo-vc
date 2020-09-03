@@ -2,7 +2,7 @@
 
 class Station < ApplicationRecord
   belongs_to :address
-  has_many :trips, dependent: :nullify
+  has_many :trips
   has_many :bikes, dependent: :destroy
 
   enum status: {

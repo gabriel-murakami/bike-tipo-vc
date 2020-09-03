@@ -10,7 +10,8 @@ MODELS = [
   Address,
   Station,
   Bike,
-  Trip
+  Trip,
+  User
 ].freeze
 
 puts 'Removing old seeds...'
@@ -81,3 +82,9 @@ bikes.each do |bike|
     trip.save
   end
 end
+
+puts 'Creating User...'
+
+user = User.new(email: 'admin@bike.com', password: '123456', password_confirmation: '123456')
+user.trips << Trip.all.limit(3)
+user.save
