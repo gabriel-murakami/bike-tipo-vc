@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :trip do
     bike { build(:bike) }
+    user { build(:user) }
     start_station { build(:station) }
     finish_station { build(:station, name: 'Moema') }
 

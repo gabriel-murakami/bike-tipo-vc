@@ -1,19 +1,35 @@
 # frozen_string_literal: true
 
 class WithdrawService
-  attr_reader :withdraw_station, :bike
+  attr_reader :withdraw_station, :bike, :user
 
-  def initialize(station:, bike:)
+  def initialize(station:, bike:, user:)
     @withdraw_station = station
     @bike = bike
+    @user = user
   end
 
   def execute
-    return false unless bike.available?
+    return false if !bike.available? || !user.bike.nil?
 
     ActiveRecord::Base.transaction do
       bike.on_trip!
+      user.update(bike: bike)
       withdraw_station.update_status
+      start_trip
     end
+  end
+
+  private
+
+  def start_trip
+    trip = Trip.new(
+      bike: bike,
+      user: user,
+      start_time: Time.current,
+      start_station: withdraw_station
+    )
+
+    trip.save
   end
 end

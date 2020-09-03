@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 MODELS = [
-  Address,
-  Station,
-  Bike,
   Trip,
+  Bike,
+  Station,
+  Address,
   User
 ].freeze
 
@@ -51,7 +51,7 @@ station3.save
 
 
 puts 'Creating Bikes...'
-BIKE_STATUS = [:available, :on_trip, :damaged].freeze
+BIKE_STATUS = [:available, :damaged].freeze
 
 stations = Station.all
 
@@ -86,5 +86,4 @@ end
 puts 'Creating User...'
 
 user = User.new(email: 'admin@bike.com', password: '123456', password_confirmation: '123456')
-user.trips << Trip.all.limit(3)
 user.save

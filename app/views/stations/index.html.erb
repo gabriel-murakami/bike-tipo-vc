@@ -2,8 +2,26 @@
   <ul>
     <% @stations.each do |station| %>
       <li>
-        <%= station.name %> | <%= station.spots_number %>
+        <%= station.name %> | Capacidade: <%= station.spots_number %> | Spots disponíveis: <%= station.spots_available_number %>
       </li>
+      <ul>
+        <% station.bikes.each do |bike| %>
+          <% # next if bike.status == 'on_trip' %>
+          <li>
+            <div>
+              <%= bike.id  %> | <%= bike.status %>
+              <% if bike.status == 'available' %>
+                <%= button_to "Alugar", trips_path, method: :post, params: { bike_id: bike.id, station_id: station.id, service: 'withdraw' } %>
+              <% elsif bike.status == 'on_trip' %>
+                <% @stations.each do |station| %>
+                  <%= button_to "Devolver para #{station.name}", trips_path, method: :post, params: { bike_id: bike.id, station_id: station.id, service: 'devolution' } %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      </br>
     <% end %>
   </ul>
 </div>
