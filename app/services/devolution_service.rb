@@ -20,7 +20,7 @@ class DevolutionService
   private
 
   def update_bike
-    bike.update_attribute(:station, devolution_station)
+    bike.update(station: devolution_station)
     bike.available!
   end
 

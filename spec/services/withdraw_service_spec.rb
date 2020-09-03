@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe WithdrawService, type: :service do
-  subject(:service) {
+  subject(:service) do
     described_class.new(
       station: station,
       bike: bike
     )
-  }
+  end
 
   describe '#execute' do
     let(:station) { build(:station, spots_number: 1, status: :full) }

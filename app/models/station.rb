@@ -2,7 +2,7 @@
 
 class Station < ApplicationRecord
   belongs_to :address
-  has_many :trips
+  has_many :trips, dependent: :nullify
   has_many :bikes, dependent: :destroy
 
   enum status: {
@@ -16,7 +16,7 @@ class Station < ApplicationRecord
 
     if bikes_on_station == self.spots_number
       self.full!
-    elsif bikes_on_station == 0
+    elsif bikes_on_station.zero?
       self.empty!
     else
       self.spots_available!

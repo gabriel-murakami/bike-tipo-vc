@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe DevolutionService, type: :service do
-  subject(:service) {
+  subject(:service) do
     described_class.new(
       station: devolution_station,
       bike: bike
     )
-  }
+  end
 
   describe '#execute' do
     let(:devolution_station) { build(:station, spots_number: 1, status: :empty) }
