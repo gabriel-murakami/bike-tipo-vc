@@ -1,27 +1,25 @@
-<div>
-  <ul>
-    <% @stations.each do |station| %>
-      <li>
-        <%= station.name %> | Capacidade: <%= station.spots_number %> | Spots disponíveis: <%= station.spots_available_number %>
-      </li>
-      <ul>
-        <% station.bikes.each do |bike| %>
-          <% # next if bike.status == 'on_trip' %>
-          <li>
-            <div>
-              <%= bike.id  %> | <%= bike.status %>
-              <% if bike.status == 'available' %>
-                <%= button_to "Alugar", trips_path, method: :post, params: { bike_id: bike.id, station_id: station.id, service: 'withdraw' } %>
-              <% elsif bike.status == 'on_trip' %>
-                <% @stations.each do |station| %>
-                  <%= button_to "Devolver para #{station.name}", trips_path, method: :post, params: { bike_id: bike.id, station_id: station.id, service: 'devolution' } %>
-                <% end %>
-              <% end %>
-            </div>
-          </li>
+<%= javascript_pack_tag 'station' %>
+
+<div class="stations">
+  <% @stations.each do |station| %>
+    <div class="station" id="<%= station.name.downcase.gsub(' ', '-') %>">
+      <div class="station_info">
+        <section class="station_name">
+          <%= station.name %> (spots: <%= station.spots_number %>)
+        </section>
+        <% if current_user.bike.nil? %>
+          <section class="available_bikes">
+            Bikes disponíveis: <%= station.available_bikes %>
+          </section>
+          <section class="damaged_bikes">
+            Bikes com problemas: <%= station.damaged_bikes %>
+          </section>
         <% end %>
-      </ul>
-      </br>
-    <% end %>
-  </ul>
+        <section class="station_spots">
+          Vagas disponíveis: <%= station.vacancy_number %>
+        </section>
+      </div>
+      <%= render current_user.bike.present? ? 'devolution' : 'withdraw', station: station %>
+    </div>
+  <% end %>
 </div>

@@ -1,0 +1,1 @@
+<%= button_to "Devolver para #{station.name}", trips_path, method: :post, params: { bike_id: current_user.bike.id, station_id: station.id, service: 'devolution' } %>

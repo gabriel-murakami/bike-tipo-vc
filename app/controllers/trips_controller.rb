@@ -11,13 +11,13 @@ class TripsController < ApplicationController
       if WithdrawService.new(station: station, bike: bike, user: current_user).execute
         redirect_to stations_url, notice: "Bike #{bike.id} alugada com sucesso"
       else
-        redirect_to stations_url, notice: 'Não foi possível alugar esta bike'
+        redirect_to stations_url, alert: 'Não foi possível alugar esta bike'
       end
     elsif params[:service] == 'devolution'
       if DevolutionService.new(station: station, bike: bike, user: current_user).execute
         redirect_to stations_url, notice: "Bike #{bike.id} devolvida com sucesso para #{station.name}"
       else
-        redirect_to stations_url, notice: 'Não foi possível devolver esta bike'
+        redirect_to stations_url, alert: 'Não foi possível devolver esta bike'
       end
     end
   end

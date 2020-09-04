@@ -21,12 +21,20 @@ class Station < ApplicationRecord
     end
   end
 
-  def spots_available_number
+  def vacancy_number
     self.spots_number - bikes_on_station
   end
 
   def bikes_on_station
-    self.bikes.count { |bike| bike.status != 'on_trip' }
+    damaged_bikes + available_bikes
+  end
+
+  def damaged_bikes
+    @damaged_bikes ||= self.bikes.count { |bike| bike.status == 'damaged' }
+  end
+
+  def available_bikes
+    @available_bikes ||= self.bikes.count { |bike| bike.status == 'available' }
   end
 
   def bikes_on_trip
