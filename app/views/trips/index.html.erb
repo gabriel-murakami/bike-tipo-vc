@@ -1,0 +1,15 @@
+<div class="trips">
+  <h1 class="title">Suas viagens</h1>
+  <% @trips.reverse.each do |trip| %>
+    <div class="trip">
+      <div class="trip-info">
+        <section class="start-time">
+          Origem: <b><%= trip.start_station.name %></b> (<%= trip.start_time.strftime('%d/%m/%Y %H:%M') %>)
+        </section>
+        <section class="finish-time">
+          Destino: <b><%= trip.finish_station.name %></b> (<%= trip.finish_time.strftime('%d/%m/%Y %H:%M') %>)
+        </section>
+      </div>
+    </div>
+  <% end %>
+</div>

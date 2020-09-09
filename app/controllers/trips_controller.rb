@@ -3,6 +3,10 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @trips = Trip.where(user: current_user)
+  end
+
   def create
     station = Station.find(params[:station_id])
     bike = Bike.find(params[:bike_id])

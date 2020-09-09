@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BikeTipoVc</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+<head>
+  <title>BikeTipoVc</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    </br>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-    <%= yield %>
-  </body>
+<body>
+  </br>
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% elsif alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
+  <% if current_user %>
+    <div class="header">
+      <div class="home-path">
+        <%= link_to "BikeTipoVc", stations_path, class: 'home-icon' %>
+      </div>
+      <div class="current-user-logout">
+        <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn-logout' %>
+      </div>
+      <% if !current_page?(trips_path)  %>
+      <div class="current-user-trips">
+        <%= button_to "trips", trips_path, method: :get, class: 'btn-trips' %>
+      </div>
+      <% end %>
+      <div class="current-user">
+        <%= current_user.email %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</body>
+
 </html>

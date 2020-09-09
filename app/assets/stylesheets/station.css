@@ -1,23 +1,15 @@
-.user-info {
-  margin: 10px;
-  text-align: right;
-  float: right;
-}
-
-.current-user-logout {
-  float: left;
-}
-
-.current-user {
-  float: left;
-  padding: 5px;
+.bike-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 div.stations {
   display: inline-block;
   width: 100%;
   text-align: center;
-  padding-top: 30px;
   margin: auto;
 }
 

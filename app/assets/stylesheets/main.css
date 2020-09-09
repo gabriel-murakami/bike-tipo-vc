@@ -4,6 +4,52 @@ body {
   font-family: sans-serif;
 }
 
+.title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: blueviolet;
+}
+
+.header {
+  margin: 10px;
+  width: 80%;
+  margin: auto;
+}
+
+.home-path {
+  float: left;
+}
+
+.home-icon {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  color: orange;
+  border: 2px solid gray;
+  border-radius: 10px;
+  transition: all 300ms linear;
+}
+
+.home-icon:hover {
+  color: blueviolet;
+  border-color: blueviolet;
+}
+
+.current-user-logout {
+  float: right;
+}
+
+.current-user-trips {
+  float: right;
+  margin-right: 10px;
+}
+
+.current-user {
+  float: right;
+  padding: 5px;
+}
+
 .notice {
   display: block;
   background-color: rgb(135, 236, 135);
@@ -14,6 +60,7 @@ body {
   width: 80%;
   text-align: center;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .alert {
@@ -26,6 +73,7 @@ body {
   width: 80%;
   text-align: center;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 input {
