@@ -1,31 +1,16 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.user-info {
+  margin: 10px;
+  text-align: right;
+  float: right;
 }
 
-.notice {
-  display: block;
-  background-color: rgb(135, 236, 135);
-  box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 10px;
-  width: 80%;
-  text-align: center;
-  margin: auto;
+.current-user-logout {
+  float: left;
 }
 
-.alert {
-  display: block;
-  background-color: rgb(252, 252, 135);
-  box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 10px;
-  width: 80%;
-  text-align: center;
-  margin: auto;
+.current-user {
+  float: left;
+  padding: 5px;
 }
 
 div.stations {
@@ -34,20 +19,6 @@ div.stations {
   text-align: center;
   padding-top: 30px;
   margin: auto;
-}
-
-input {
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(235, 235, 235);
-  margin-top: 5px;
-  padding: 5px;
-  transition: all 100ms cubic-bezier(.17,.67,.57,.2);
-}
-
-input:hover {
-  background-color: blueviolet;
-  color: white;
 }
 
 div.station {
@@ -72,10 +43,6 @@ section.station_name {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: blueviolet;
   font-size: 20px;
-}
-
-section {
-  margin: 2px;
 }
 
 div.station_info {

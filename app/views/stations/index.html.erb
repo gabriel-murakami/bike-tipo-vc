@@ -1,5 +1,14 @@
 <%= javascript_pack_tag 'station' %>
 
+<div class="user-info">
+  <div class="current-user">
+    <%= current_user.email %>
+  </div>
+  <div class="current-user-logout">
+    <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn-logout' %>
+  </div>
+</div>
+
 <div class="stations">
   <% @stations.each do |station| %>
     <div class="station" id="<%= station.name.downcase.gsub(' ', '-') %>">
