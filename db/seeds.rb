@@ -8,10 +8,10 @@
 
 MODELS = [
   Trip,
+  User,
   Bike,
   Station,
   Address,
-  User
 ].freeze
 
 puts 'Removing old seeds...'

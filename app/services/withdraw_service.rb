@@ -16,20 +16,8 @@ class WithdrawService
       bike.on_trip!
       user.update(bike: bike)
       withdraw_station.update_status
-      start_trip
+
+      Trip.start_trip(bike: bike, user: user, start_station: withdraw_station)
     end
-  end
-
-  private
-
-  def start_trip
-    trip = Trip.new(
-      bike: bike,
-      user: user,
-      start_time: Time.current,
-      start_station: withdraw_station
-    )
-
-    trip.save
   end
 end

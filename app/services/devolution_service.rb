@@ -16,16 +16,12 @@ class DevolutionService
       update_bike
       user.update(bike: nil)
       devolution_station.update_status
-      finish_trip
+
+      Trip.finish_trip(user: user, finish_station: devolution_station)
     end
   end
 
   private
-
-  def finish_trip
-    trip = Trip.where(user_id: user.id).last
-    trip.update(finish_time: Time.now, finish_station: devolution_station)
-  end
 
   def update_bike
     bike.update(station: devolution_station)
