@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_165521) do
+ActiveRecord::Schema.define(version: 2020_09_13_154949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_165521) do
     t.bigint "start_station_id"
     t.bigint "finish_station_id"
     t.bigint "user_id"
+    t.float "cost"
     t.index ["bike_id"], name: "index_trips_on_bike_id"
     t.index ["finish_station_id"], name: "index_trips_on_finish_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"

@@ -19,6 +19,8 @@ class DevolutionService
 
       Trip.finish_trip(user: user, finish_station: devolution_station)
     end
+
+    CalculateTripCostJob.perform_later(Trip.where(user: user).last)
   end
 
   private

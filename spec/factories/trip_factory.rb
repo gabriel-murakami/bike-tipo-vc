@@ -7,6 +7,7 @@ FactoryBot.define do
     start_station { build(:station) }
     finish_station { build(:station, name: 'Moema') }
 
+    cost { nil }
     start_time { 25.minutes.ago }
     finish_time { Time.current }
   end
