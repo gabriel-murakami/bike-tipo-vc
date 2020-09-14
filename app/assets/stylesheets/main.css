@@ -54,26 +54,33 @@ body {
   display: block;
   background-color: rgb(135, 236, 135);
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   border-radius: 10px;
-  width: 80%;
+  width: 20%;
   text-align: center;
   margin: auto;
-  margin-bottom: 10px;
+  z-index: 3;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.7;
 }
 
 .alert {
   display: block;
   background-color: rgb(252, 252, 135);
-  box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   border-radius: 10px;
-  width: 80%;
+  width: 20%;
   text-align: center;
   margin: auto;
-  margin-bottom: 10px;
+  z-index: 3;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.7;
 }
 
 input {
