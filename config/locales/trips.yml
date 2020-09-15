@@ -1,0 +1,8 @@
+pt-BR:
+  trips:
+    withdraw:
+      success: Bike %{bike_id} alugada com sucesso
+      failed: Não foi possível alugar esta bike
+    devolution:
+      success: Bike %{bike_id} devolvida com sucesso para %{station_name}
+      failed: Não foi possível devolver esta bike

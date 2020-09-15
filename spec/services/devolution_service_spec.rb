@@ -11,7 +11,6 @@ RSpec.describe DevolutionService, type: :service do
     )
   end
 
-
   describe '#execute' do
     let(:devolution_station) { build(:station, spots_number: 1, status: :empty) }
     let(:bike) { build(:bike, status: :on_trip, station: devolution_station) }
@@ -32,9 +31,7 @@ RSpec.describe DevolutionService, type: :service do
     end
 
     context 'when devolution station is different as withdrawing station' do
-      before do
-        allow(Trip).to receive(:where).and_return([trip])
-      end
+      before { allow(Trip).to receive(:where).and_return([trip]) }
 
       let(:devolution_station) { create(:station, spots_number: 1, status: :empty) }
       let(:withdrawing_station) { create(:station, spots_number: 1, status: :empty) }
@@ -55,6 +52,12 @@ RSpec.describe DevolutionService, type: :service do
 
       it 'finishes a trip' do
         expect { service.execute }.to change { trip.finish_station }.from(nil).to(devolution_station)
+      end
+
+      it 'perform the trip cost job' do
+        expect(CalculateTripCostJob).to receive(:perform_later).with(trip)
+
+        service.execute
       end
     end
   end

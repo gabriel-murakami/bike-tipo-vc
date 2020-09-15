@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :stations, only: %i[show index]
-  resources :trips, only: %i[index create destroy]
+  resources :stations, only: :index
+  resources :trips, only: :index
+  resource :withdraws, only: :create
+  resource :devolutions, only: :create
 
   root to: 'stations#index'
 end
