@@ -8,6 +8,8 @@ class CalculateTripCostJob < ApplicationJob
 
   def perform(trip)
     trip.update!(cost: calculator(trip.start_time, trip.finish_time))
+
+    SendTripToPrefectureJob.perform_later(trip)
   end
 
   private

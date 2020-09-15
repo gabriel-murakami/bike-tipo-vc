@@ -5,6 +5,8 @@ require 'rails_helper'
 RSpec.describe CalculateTripCostJob, type: :job do
   subject(:job) { described_class.new }
 
+  before { allow(SendTripToPrefectureJob).to receive(:perform_later).and_return(true) }
+
   describe '#perform' do
     context 'when the trip is less than or equal to one hour' do
       let(:trip) { build(:trip) }
