@@ -57,6 +57,10 @@ div.bike {
   display: inline-block;
 }
 
+.damage_report_button {
+  display: inline-block;
+}
+
 i.material-icons.damaged {
   color: red;
   font-size: 14px;

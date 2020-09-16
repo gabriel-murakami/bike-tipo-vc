@@ -1,0 +1,6 @@
+<div style="text-align: center; margin: auto; width: 80%; font-family: sans-serif;">
+  <h2>Olá <%= @bill.user.name %></h2>
+  <h3>Sua fatura desse mês chegou!</h3>
+  <h3>Valor: <b style="color: blueviolet;">R$  <%= ('%.2f' % @bill.value) %></b></h3>
+  <h3>Validade: <b style="color: blueviolet;"><%= @bill.expires_at.strftime('%d/%m/%Y') %></b></h3>
+</div>

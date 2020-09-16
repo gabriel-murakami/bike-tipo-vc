@@ -7,11 +7,14 @@
       <% else %>
         <i class='material-icons available'>check_circle_outline</i>
       <% end %>
+      <% if bike.status == 'available' %>
       <div class='withdraw_button'>
-        <% if bike.status == 'available' %>
           <%= button_to 'Alugar', withdraws_path, method: :post, params: { bike_id: bike.id, station_id: station.id } %>
-        <% end %>
       </div>
+      <div class="damage_report_button">
+        <%= button_to 'Reportar Dano', damage_reports_path, method: :post, params: { bike_id: bike.id } %>
+      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

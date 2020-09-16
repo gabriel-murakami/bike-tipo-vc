@@ -1,0 +1,5 @@
+pt-BR:
+  bikes:
+    damage_notification:
+      success: Dano à bike %{bike_id} reportado com sucesso
+      failed: Não foi possível reportar esta bike

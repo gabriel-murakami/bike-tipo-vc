@@ -11,7 +11,7 @@ class SendTripToPrefectureJob < ApplicationJob
 
   def headers
     {
-      'Authorization': 'Bearer ' + ENV['PREFECTURE_TOKEN'],
+      'Authorization': 'Bearer ' + ENV['SPRINGFIELD_TOKEN'],
       'content-Type': 'application/json'
     }
   end
@@ -32,6 +32,6 @@ class SendTripToPrefectureJob < ApplicationJob
   end
 
   def url
-    'https://springfield-biketipovc.herokuapp.com/trips'
+    ENV['SPRINGFIELD_API_URL']
   end
 end
