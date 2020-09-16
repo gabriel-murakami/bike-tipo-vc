@@ -10,7 +10,7 @@ RSpec.describe Pricing::TripCostService, type: :service do
       let(:trip) { build(:trip) }
 
       it 'returns zero' do
-        expect(ser:service.execute).to be_zero
+        expect(service.execute).to be_zero
       end
     end
 
@@ -18,7 +18,7 @@ RSpec.describe Pricing::TripCostService, type: :service do
       let(:trip) { build(:trip, finish_time: Time.current, start_time: 160.minutes.ago) }
 
       it 'returns calculated trip cost' do
-        expect(ser:service.execute).to eq 14.0
+        expect(service.execute).to eq 14.0
       end
     end
   end
