@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_154949) do
+ActiveRecord::Schema.define(version: 2020_09_16_152904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2020_09_13_154949) do
     t.bigint "user_id"
     t.index ["station_id"], name: "index_bikes_on_station_id"
     t.index ["user_id"], name: "index_bikes_on_user_id"
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.float "value"
+    t.date "expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
   end
 
   create_table "stations", force: :cascade do |t|
@@ -68,12 +77,14 @@ ActiveRecord::Schema.define(version: 2020_09_13_154949) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bikes", "stations"
   add_foreign_key "bikes", "users"
+  add_foreign_key "bills", "users"
   add_foreign_key "stations", "addresses"
   add_foreign_key "trips", "bikes"
   add_foreign_key "trips", "stations", column: "finish_station_id"
