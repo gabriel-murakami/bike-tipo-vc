@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :bill do
-    user { build(:user) }
+    user { create(:user) }
+
     value { 250.0 }
     expire_at { "2020-09-30" }
   end

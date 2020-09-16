@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :user do
-    bike { build(:bike) }
-
     email { 'admin@bike.com' }
     name { 'John' }
     password { '123bike' }

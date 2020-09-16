@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :station do
-    address { build(:address) }
+    address { create(:address) }
 
     status { :empty }
     name { 'Vila Olímpia' }

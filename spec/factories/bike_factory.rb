@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :bike do
-    station { build(:station) }
+    station { create(:station) }
 
     status { :available }
   end

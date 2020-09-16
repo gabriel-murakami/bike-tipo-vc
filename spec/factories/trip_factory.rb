@@ -2,13 +2,13 @@
 
 FactoryBot.define do
   factory :trip do
-    bike { build(:bike) }
-    user { build(:user) }
-    start_station { build(:station) }
-    finish_station { build(:station, name: 'Moema') }
+    bike { create(:bike) }
+    user { create(:user) }
+    start_station { create(:station) }
+    finish_station { create(:station, name: 'Moema') }
 
     cost { nil }
-    start_time { 25.minutes.ago }
-    finish_time { Time.current }
+    start_time { 25.minutes.ago - 1.day }
+    finish_time { Time.current - 1.day }
   end
 end
