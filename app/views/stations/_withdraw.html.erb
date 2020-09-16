@@ -1,15 +1,15 @@
-<div class="bikes">
+<div class='bikes'>
   <% station.bikes.each do |bike| %>
-    <div class="bike">
+    <div class='bike'>
       ID: <%= bike.id  %>
       <% if bike.status == 'damaged' %>
-        <i class="material-icons damaged">highlight_off</i>
+        <i class='material-icons damaged'>highlight_off</i>
       <% else %>
-        <i class="material-icons available">check_circle_outline</i>
+        <i class='material-icons available'>check_circle_outline</i>
       <% end %>
-      <div class="withdraw_button">
+      <div class='withdraw_button'>
         <% if bike.status == 'available' %>
-          <%= button_to "Alugar", withdraws_path, method: :post, params: { bike_id: bike.id, station_id: station.id } %>
+          <%= button_to 'Alugar', withdraws_path, method: :post, params: { bike_id: bike.id, station_id: station.id } %>
         <% end %>
       </div>
     </div>
