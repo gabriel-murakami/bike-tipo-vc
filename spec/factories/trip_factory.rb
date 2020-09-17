@@ -8,7 +8,7 @@ FactoryBot.define do
     finish_station { create(:station, name: 'Moema') }
 
     cost { nil }
-    start_time { 25.minutes.ago - 1.day }
-    finish_time { Time.current - 1.day }
+    start_time { 25.minutes.ago - 1.month }
+    finish_time { Time.current - 1.month }
   end
 end

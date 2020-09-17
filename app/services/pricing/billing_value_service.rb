@@ -15,10 +15,12 @@ module Pricing
     private
 
     def trips
+      prev_month = Date.current.prev_month
+
       @trips ||= user.trips.where(
         'finish_time >= ? AND finish_time < ?',
-        30.days.ago.beginning_of_day,
-        Date.current.beginning_of_day
+        prev_month.beginning_of_month,
+        prev_month.end_of_month
       )
     end
   end
