@@ -1,5 +1,4 @@
 <div class='stations'>
-  <img src='/assets/bike.png' alt='' class='bike-img'>
   <% @stations.each do |station| %>
     <div class='station' id='<%= station.name.downcase.gsub(' ', '-') %>'>
       <div class='station_info'>

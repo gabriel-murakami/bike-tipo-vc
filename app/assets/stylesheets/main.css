@@ -9,10 +9,15 @@ body {
   color: blueviolet;
 }
 
-.header {
-  margin: 10px;
-  width: 80%;
+header.main-header {
+  display: block;
+  width: 100%;
+  height: 50px;
   margin: auto;
+  margin-bottom: 10px;
+  background-color: blueviolet;
+  position: fixed;
+  top: 0px;
 }
 
 .home-path {
@@ -22,18 +27,29 @@ body {
 .home-icon {
   display: inline-block;
   margin: 5px;
+  margin-left: 10px;
+  margin-top: 9px;
   padding: 5px;
   font-size: 16px;
   text-decoration: none;
-  color: orange;
-  border: 2px solid gray;
+  color: white;
+  border: 2px solid white;
   border-radius: 10px;
   transition: all 300ms linear;
 }
 
 .home-icon:hover {
-  color: blueviolet;
-  border-color: blueviolet;
+  color: orange;
+  border-color: orange;
+}
+
+.home-icon:active, .home-icon:visited {
+  text-decoration: none;
+}
+
+.header-buttons {
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
 .current-user-logout {
@@ -48,6 +64,8 @@ body {
 .current-user {
   float: right;
   padding: 5px;
+  color: white;
+  margin-right: 10px;
 }
 
 .notice {
@@ -56,15 +74,14 @@ body {
   box-sizing: border-box;
   padding: 10px;
   border-radius: 10px;
-  width: 20%;
+  width: 80%;
   text-align: center;
   margin: auto;
   z-index: 3;
   position: absolute;
-  top: 10px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.7;
 }
 
 .alert {
@@ -72,15 +89,14 @@ body {
   background-color: rgb(252, 252, 135);
   padding: 10px;
   border-radius: 10px;
-  width: 20%;
+  width: 80%;
   text-align: center;
   margin: auto;
   z-index: 3;
   position: absolute;
-  top: 10px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.7;
 }
 
 input {
@@ -92,7 +108,7 @@ input {
 }
 
 input:hover {
-  background-color: blueviolet;
+  background-color: orange;
   color: white;
 }
 

@@ -3,6 +3,7 @@ div.trips {
   width: 100%;
   text-align: center;
   margin: auto;
+  margin-top: 50px;
 }
 
 div.trip {
