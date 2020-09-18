@@ -1,0 +1,3 @@
+:queues:
+  - default
+  - send_trip_to_prefecture

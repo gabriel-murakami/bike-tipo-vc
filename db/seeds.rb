@@ -85,5 +85,11 @@ end
 
 puts 'Creating User...'
 
-user = User.new(email: 'admin@bike.com', password: '123456', password_confirmation: '123456', name: 'John')
+user = User.new(
+  email: 'admin@bike.com',
+  password: '123456',
+  password_confirmation: '123456',
+  name: 'John',
+  due_date: 10
+)
 user.save

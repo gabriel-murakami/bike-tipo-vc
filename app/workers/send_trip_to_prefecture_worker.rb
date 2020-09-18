@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-class SendTripToPrefectureJob < ApplicationJob
-  queue_as 'bike-tipo-vc.job.send-trip-to-prefecture'
+class SendTripToPrefectureWorker
+  include Sidekiq::Worker
+  sidekiq_options queue: 'send_trip_to_prefecture', retry: false
 
-  def perform(trip)
+  def perform(trip_id)
+    trip = Trip.find(trip_id)
     RestClient.post(url, payload(trip).to_json, headers)
   end
 
