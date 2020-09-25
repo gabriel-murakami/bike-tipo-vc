@@ -10,7 +10,9 @@ class User < ApplicationRecord
 
   after_create { SendBillingNotificationWorker.perform_at(date, self.due_date, self.id) }
 
+  private
+
   def date
-    (Date.new(Date.current.year, Date.current.month, due_date) + 1.month).to_s
+    (Date.new(Date.current.year, Date.current.month, self.due_date) + 1.month).to_s
   end
 end

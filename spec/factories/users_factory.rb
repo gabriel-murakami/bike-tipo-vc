@@ -6,5 +6,6 @@ FactoryBot.define do
     name { 'John' }
     password { '123456' }
     password_confirmation { '123456' }
+    due_date { 1 }
   end
 end

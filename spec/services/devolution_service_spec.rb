@@ -36,7 +36,7 @@ RSpec.describe DevolutionService, type: :service do
       let(:devolution_station) { create(:station, spots_number: 1, status: :empty) }
       let(:withdrawing_station) { create(:station, spots_number: 1, status: :empty) }
       let(:bike) { build(:bike, status: :on_trip, station: withdrawing_station) }
-      let(:trip) { build(:trip, bike: bike, user: user, start_station: withdrawing_station, finish_station: nil) }
+      let(:trip) { create(:trip, bike: bike, user: user, start_station: withdrawing_station, finish_station: nil) }
 
       it 'sets `available` status to the bike' do
         expect { service.execute }.to change { bike.status }.from('on_trip').to('available')
@@ -55,7 +55,7 @@ RSpec.describe DevolutionService, type: :service do
       end
 
       it 'perform the trip cost job' do
-        expect(CalculateTripCostJob).to receive(:perform_later).with(trip)
+        expect(CalculateTripCostWorker).to receive(:perform_async).with(trip.user_id)
 
         service.execute
       end

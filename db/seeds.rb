@@ -90,6 +90,6 @@ user = User.new(
   password: '123456',
   password_confirmation: '123456',
   name: 'John',
-  due_date: 10
+  due_date: 1
 )
 user.save
