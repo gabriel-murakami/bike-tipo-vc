@@ -23,6 +23,11 @@
         <div class="current-user-logout">
           <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn-logout' %>
         </div>
+        <% if !current_page?(edit_user_registration_path	)  %>
+        <div class="edit-current-user">
+          <%= button_to "edit", edit_user_registration_path	, method: :get, class: 'btn-edit-user' %>
+        </div>
+        <% end %>
         <% if !current_page?(trips_path)  %>
         <div class="current-user-trips">
           <%= button_to "trips", trips_path, method: :get, class: 'btn-trips' %>

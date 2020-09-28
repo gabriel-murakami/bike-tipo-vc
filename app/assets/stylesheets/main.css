@@ -61,6 +61,11 @@ header.main-header {
   margin-right: 10px;
 }
 
+.edit-current-user {
+  float: right;
+  margin-right: 10px;
+}
+
 .current-user {
   float: right;
   padding: 5px;

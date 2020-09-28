@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :bills
   has_one :bike
 
+  validates :due_date, inclusion: 1..31
+
   after_create { SendBillingNotificationWorker.perform_at(date, self.due_date, self.id) }
 
   private

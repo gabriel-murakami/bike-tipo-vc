@@ -1,0 +1,25 @@
+.div-sign-up {
+  display: block;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.header-sign-up {
+  text-align: center;
+}
+
+.btn-back {
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(235, 235, 235);
+  padding: 5px;
+  transition: all 100ms cubic-bezier(.17,.67,.57,.2);
+  text-decoration: none;
+  color: blueviolet;
+}
+
+.btn-back:hover {
+  background-color: orange;
+  color: white;
+}

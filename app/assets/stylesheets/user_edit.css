@@ -1,0 +1,18 @@
+.div-user-edit {
+  display: block;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.header-user-edit {
+  text-align: center;
+}
+
+.field-user-edit {
+  text-align: center;
+  margin: 10px;
+}
+
+.actions-user-edit {
+  text-align: center;
+}
