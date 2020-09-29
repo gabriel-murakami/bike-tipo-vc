@@ -14,11 +14,6 @@
     </div>
 
     <div class="field-user-edit">
-      <%= f.label :dia_de_cobrança %><br />
-      <%= f.number_field :due_date, autofocus: true, min: 1, max: 31, autocomplete: "due_date" %>
-    </div>
-
-    <div class="field-user-edit">
       <%= f.label :nova_senha %><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>

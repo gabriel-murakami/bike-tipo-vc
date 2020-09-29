@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :due_date])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   def after_sign_out_path_for(resource_or_scope)

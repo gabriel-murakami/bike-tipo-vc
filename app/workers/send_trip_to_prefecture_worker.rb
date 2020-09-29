@@ -2,7 +2,7 @@
 
 class SendTripToPrefectureWorker
   include Sidekiq::Worker
-  sidekiq_options queue: 'send_trip_to_prefecture', retry: false
+  sidekiq_options retry: false
 
   def perform(trip_id)
     trip = Trip.find(trip_id)
