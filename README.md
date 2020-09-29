@@ -1,24 +1,51 @@
-# README
+# BIKE TIPO VC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Link
+  - https://bike-tipo-vc-gma.herokuapp.com/users/sign_in
 
-Things you may want to cover:
+- Ruby version
+  - 2.6.2
 
-* Ruby version
+- System dependencies 
+  - Redis
+  - Sidekiq
 
-* System dependencies
+- Configuration
 
-* Configuration
+  ```sh
+  bin/setup
+  rails db:seed
+  ```
+- Run test suit
 
-* Database creation
+  ```sh
+  bundle exec rspec
+  ```
+ 
+---
 
-* Database initialization
+### Services
+  - Pricing
+    - BillingValueService
+      > calculates total bill value
+    - TripCostService
+      > calculates individual trip cost
+  - DevolutionService
+    > manages bike devolutions
+  - WithdrawService
+    > manages bike withdraws
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+### Workers
+  - CalculateTripCostWorker
+    > triggered after bike devolution and calls TripCostService
+  - SendTripToPrefectureWorker
+    > triggered after trip cost calculation and sends trip data to Springfield API
+  - SendBillingNotificationWorker
+    > schedules billing notification after a user is created
+  
+---
 
-* Deployment instructions
-
-* ...
+### Mailers
+  - BillingMailer
