@@ -51,6 +51,6 @@
   - BillingMailer
   
 ---
-### Diagrama
+### Diagram
 
 ![diagrama](https://user-images.githubusercontent.com/56936297/94695725-a6ed6a00-030c-11eb-90e3-2c6186a59f55.png)
