@@ -4,7 +4,7 @@
   - https://bike-tipo-vc-gma.herokuapp.com/users/sign_in
 
 - Ruby version
-  - 2.6.2
+  - 2.7.1
 
 - System dependencies 
   - Redis
