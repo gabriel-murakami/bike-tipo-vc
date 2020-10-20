@@ -1,4 +1,4 @@
-div.trips {
+.trips {
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -6,7 +6,7 @@ div.trips {
   margin-top: 50px;
 }
 
-div.trip {
+.trip {
   display: inline-block;
   width: 80%;
   max-height: 80px;
@@ -19,7 +19,7 @@ div.trip {
   transition: all 700ms cubic-bezier(.17,.67,.83,.67) 0.1s;
 }
 
-div.trip:hover {
+.trip:hover {
   background-color: white;
   max-height: 400px;
 }

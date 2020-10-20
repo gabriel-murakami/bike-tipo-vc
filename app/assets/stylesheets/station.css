@@ -6,7 +6,7 @@
   margin-bottom: 20px;
 }
 
-div.stations {
+.stations {
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -14,7 +14,7 @@ div.stations {
   margin-top: 120px;
 }
 
-div.station {
+.station {
   display: inline-block;
   width: 80%;
   max-height: 80px;
@@ -27,30 +27,30 @@ div.station {
   transition: all 700ms cubic-bezier(.17,.67,.83,.67) 0.1s;
 }
 
-div.station:hover {
+.station:hover {
   background-color: white;
   max-height: 400px;
 }
 
-section.station_name {
+.station_name {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: blueviolet;
   font-size: 20px;
 }
 
-div.station_info {
+.station_info {
   display: inline-block;
   width: 100%;
 }
 
-div.bikes {
+.bikes {
   margin-top: 30px;
   display: inline-block;
   width: 100%;
   overflow: hidden;
 }
 
-div.bike {
+.bike {
   padding: 5px;
 }
 
@@ -62,12 +62,12 @@ div.bike {
   display: inline-block;
 }
 
-i.material-icons.damaged {
+.material-icons.damaged {
   color: red;
   font-size: 14px;
 }
 
-i.material-icons.available {
+.material-icons.available {
   color: green;
   font-size: 14px;
 }

@@ -9,7 +9,7 @@ body {
   color: blueviolet;
 }
 
-header.main-header {
+.main-header {
   display: block;
   width: 100%;
   height: 50px;
