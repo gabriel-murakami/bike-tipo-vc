@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe DamageReportsController, type: :controller do
   describe 'POST /damage_reports' do
     context 'when user is not logged' do
-      it 'redirect to new user session path' do
+      it 'redirects to new user session path' do
         get :create
 
         expect(response).to have_http_status(:found)

@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe TripsController, type: :controller do
   describe 'GET /trips' do
     context 'when user is not logged' do
-      it 'redirect to new user session path' do
+      it 'redirects to new user session path' do
         get :index
 
         expect(response).to have_http_status(:found)

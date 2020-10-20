@@ -12,13 +12,17 @@ class Station < ApplicationRecord
   }
 
   def update_status
-    if bikes_on_station == self.spots_number
+    if station_full?
       self.full!
     elsif bikes_on_station.zero?
       self.empty!
     else
       self.spots_available!
     end
+  end
+
+  def station_full?
+    bikes_on_station == self.spots_number
   end
 
   def vacancy_number
@@ -30,14 +34,14 @@ class Station < ApplicationRecord
   end
 
   def damaged_bikes
-    @damaged_bikes ||= self.bikes.count { |bike| bike.status == 'damaged' }
+    @damaged_bikes ||= self.bikes.count(&:damaged?)
   end
 
   def available_bikes
-    @available_bikes ||= self.bikes.count { |bike| bike.status == 'available' }
+    @available_bikes ||= self.bikes.count(&:available?)
   end
 
   def bikes_on_trip
-    self.bikes.count { |bike| bike.status == 'on_trip' }
+    @bikes_on_trip ||= self.bikes.count(&:on_trip?)
   end
 end

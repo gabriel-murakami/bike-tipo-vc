@@ -1,9 +1,10 @@
 setTimeout(function(){
+    var msg = '';
     if(document.querySelector(".notice")){
-      var msg = document.querySelector(".notice");
+      msg = document.querySelector(".notice");
     }
     else {
-      var msg = document.querySelector(".alert");
+      msg = document.querySelector(".alert");
     }
     msg.parentNode.removeChild(msg);
 }, 3000);

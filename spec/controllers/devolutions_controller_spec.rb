@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe DevolutionsController, type: :controller do
   describe 'POST /devolutions' do
     context 'when user is not logged' do
-      it 'redirect to new user session path' do
+      it 'redirects to new user session path' do
         get :create
 
         expect(response).to have_http_status(:found)
@@ -24,7 +24,7 @@ RSpec.describe DevolutionsController, type: :controller do
       context 'and when devolution station is full' do
         let(:devolution_status) { :full }
 
-        it 'redirect to stations with error message' do
+        it 'redirects to stations with error message' do
           post :create, params: { bike_id: bike.id, station_id: devolution_station.id, current_user: user.id }
 
           expect(response).to redirect_to(stations_path)
@@ -33,7 +33,7 @@ RSpec.describe DevolutionsController, type: :controller do
       end
 
       context 'and when devolution station is same as withdraw station' do
-        it 'redirect to stations with error message' do
+        it 'redirects to stations with error message' do
           post :create, params: { bike_id: bike.id, station_id: withdraw_station.id, current_user: user.id }
 
           expect(response).to redirect_to(stations_path)
@@ -47,7 +47,7 @@ RSpec.describe DevolutionsController, type: :controller do
         let(:devolution_status) { :empty }
         let(:trip) { create(:trip, bike: bike, user: user, start_station: withdraw_station, finish_station: nil) }
 
-        it 'redirect to stations with success message' do
+        it 'redirects to stations with success message' do
           post :create, params: { bike_id: bike.id, station_id: devolution_station.id, current_user: user.id }
 
           expect(response).to redirect_to(stations_path)

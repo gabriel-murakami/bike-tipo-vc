@@ -4,10 +4,8 @@ class TripsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trips = Trip.where(user: current_user).order(finish_time: :desc).select do |trip|
-      trip.finish_station.present? && trip.finish_time > Date.current.prev_month
-    end
+    @trips = Trip.user_trips(current_user)
 
-    @actual_bill_value = @trips.sum(&:cost)
+    @actual_bill_value = Pricing::BillingValueService.new(user: current_user, current_trips: @trips).execute
   end
 end

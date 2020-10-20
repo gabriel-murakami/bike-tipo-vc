@@ -10,7 +10,7 @@ class DevolutionService
   end
 
   def execute
-    return false if !station_different_from_initial? || devolution_station.full?
+    return false if same_station_from_initial? || devolution_station.full?
 
     ActiveRecord::Base.transaction do
       update_bike
@@ -26,11 +26,10 @@ class DevolutionService
   private
 
   def update_bike
-    bike.update!(station: devolution_station)
-    bike.available!
+    bike.update!(station: devolution_station, status: :available)
   end
 
-  def station_different_from_initial?
-    bike.station != devolution_station
+  def same_station_from_initial?
+    bike.station == devolution_station
   end
 end

@@ -2,17 +2,22 @@
 
 module Pricing
   class BillingValueService
-    attr_reader :user
+    attr_reader :user, :current_trips
 
-    def initialize(user:)
+    def initialize(user:, current_trips: nil)
       @user = user
+      @current_trips = current_trips
     end
 
     def execute
-      trips.sum(&:cost)
+      current_trips ? calculate(current_trips) : calculate(trips)
     end
 
     private
+
+    def calculate(trips)
+      trips.sum(&:cost)
+    end
 
     def trips
       prev_month = Date.current.prev_month
