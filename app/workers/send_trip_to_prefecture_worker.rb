@@ -5,8 +5,9 @@ class SendTripToPrefectureWorker
   sidekiq_options retry: false
 
   def perform(trip_id)
-    trip = Trip.find(trip_id)
-    RestClient.post(url, payload(trip).to_json, headers)
+    puts "[SendTripToPrefectureWorker] Trip ID: #{trip_id}"
+    # trip = Trip.find(trip_id)
+    # RestClient.post(url, payload(trip).to_json, headers)
   end
 
   private

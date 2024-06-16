@@ -8,7 +8,7 @@
 
 MODELS = [
   Trip,
-  User,
+  # User,
   Bike,
   Station,
   Address,

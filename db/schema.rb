@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_194311) do
     t.bigint "start_station_id"
     t.bigint "finish_station_id"
     t.bigint "user_id"
-    t.float "cost"
+    t.float "cost", default: 0.0
     t.index ["bike_id"], name: "index_trips_on_bike_id"
     t.index ["finish_station_id"], name: "index_trips_on_finish_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
